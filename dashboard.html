@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Sahayata Pro - AI Farming Intelligence Dashboard</title>
+    <meta name="description" content="World's most advanced AI-powered agricultural dashboard">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/glassmorphism.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+</head>
+<body>
+    <!-- Premium Background Effects -->
+    <div class="dashboard-bg">
+        <div class="bg-grid"></div>
+        <div class="floating-particles">
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+            <div class="particle p4"></div>
+            <div class="particle p5"></div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Premium Header -->
+        <header class="premium-header">
+            <div class="header-content">
+                <div class="brand-section">
+                    <div class="logo-container">
+                        <div class="logo-glow">🌾</div>
+                        <div class="brand-text">
+                            <h1 data-lang="app_title">Krishi Sahayata Pro</h1>
+                            <span class="subtitle" data-lang="app_tagline">AI Farming Intelligence</span>
+                        </div>
+                    </div>
+                    <div class="ai-status">
+                        <span class="status-dot"></span>
+                        <span>AI System: Online</span>
+                    </div>
+                </div>
+
+                <div class="header-controls">
+                    <!-- Language & Theme -->
+                    <div class="control-group">
+                        <div class="language-switcher-compact">
+                            <button class="lang-btn-compact active" data-lang="en">EN</button>
+                            <button class="lang-btn-compact" data-lang="hi">HI</button>
+                            <button class="lang-btn-compact" data-lang="ml">ML</button>
+                        </div>
+                        <button class="theme-toggle-compact" id="themeToggle">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                    </div>
+
+                    <!-- User Profile -->
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-name" id="userName">Loading...</span>
+                            <span class="user-role" id="userRole">Premium Farmer</span>
+                        </div>
+                        <div class="user-avatar" id="userAvatar">
+                            <div class="avatar-image">👨‍🌾</div>
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div class="user-menu">
+                            <button class="menu-trigger">⚙️</button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="menu-item" data-lang="menu_profile">Profile Settings</a>
+                                <a href="#" class="menu-item" data-lang="menu_preferences">Preferences</a>
+                                <a href="#" class="menu-item" data-lang="menu_help">Help Center</a>
+                                <div class="menu-divider"></div>
+                                <a href="#" class="menu-item logout" data-lang="menu_logout">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-main">
+            <!-- Sidebar Navigation -->
+            <nav class="premium-sidebar">
+                <div class="sidebar-content">
+                    <!-- Quick Stats -->
+                    <div class="sidebar-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statQueries">0</span>
+                                <span class="stat-label" data-lang="stat_queries">AI Queries</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statSolved">0</span>
+                                <span class="stat-label" data-lang="stat_solved">Issues Solved</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Navigation -->
+                    <div class="nav-section">
+                        <h3 class="section-title" data-lang="nav_main">Main</h3>
+                        <div class="nav-items">
+                            <button class="nav-item active" data-section="dashboard">
+                                <span class="nav-icon">🏠</span>
+                                <span class="nav-text" data-lang="nav_dashboard">Dashboard</span>
+                            </button>
+                            <button class="nav-item" data-section="advisory">
+                                <span class="nav-icon">🤖</span>
+                                <span class="nav-text" data-lang="nav_advisory">AI Advisory</span>
+                                <span class="nav-badge">New</span>
+                            </button>
+                            <button class="nav-item" data-section="weather">
+                                <span class="nav-icon">🌦️</span>
+                                <span class="nav-text" data-lang="nav_weather">Weather Intel</span>
+                            </button>
+                            <button class="nav-item" data-section="market">
+                                <span class="nav-icon">📈</span>
+                                <span class="nav-text" data-lang="nav_market">Market Analytics</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Farming Tools -->
+                    <div class="nav-section">
+                        <h3 class="section-title" data-lang="nav_tools">Farming Tools</h3>
+                        <div class="nav-items">
+                            <button class="nav-item" data-section="subsidies">
+                                <span class="nav-icon">💰</span>
+                                <span class="nav-text" data-lang="nav_subsidies">Subsidy Hub</span>
+                            </button>
+                            <button class="nav-item" data-section="schemes">
+                                <span class="nav-icon">📑</span>
+                                <span class="nav-text" data-lang="nav_schemes">Govt Schemes</span>
+                            </button>
+                            <button class="nav-item" data-section="pest">
+                                <span class="nav-icon">🐛</span>
+                                <span class="nav-text" data-lang="nav_pest">Pest Control</span>
+                            </button>
+                            <button class="nav-item" data-section="soil">
+                                <span class="nav-icon">🌱</span>
+                                <span class="nav-text" data-lang="nav_soil">Soil Health</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Support Section -->
+                    <div class="nav-section">
+                        <h3 class="section-title" data-lang="nav_support">Support</h3>
+                        <div class="nav-items">
+                            <button class="nav-item" data-section="community">
+                                <span class="nav-icon">👥</span>
+                                <span class="nav-text" data-lang="nav_community">Community</span>
+                            </button>
+                            <button class="nav-item" data-section="experts">
+                                <span class="nav-icon">👨‍🔬</span>
+                                <span class="nav-text" data-lang="nav_experts">Agri Experts</span>
+                            </button>
+                            <button class="nav-item" data-section="help">
+                                <span class="nav-icon">❓</span>
+                                <span class="nav-text" data-lang="nav_help">Help Center</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Overview Section -->
+                <section class="content-section active" id="dashboard-section">
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner">
+                        <div class="banner-content">
+                            <div class="banner-text">
+                                <h2 data-lang="welcome_title">Welcome back, <span id="userFirstName">Farmer</span>! 👋</h2>
+                                <p data-lang="welcome_subtitle">Your AI farming assistant is ready to help with today's challenges.</p>
+                            </div>
+                            <div class="banner-stats">
+                                <div class="banner-stat">
+                                    <span class="stat-number" id="dailyTips">3</span>
+                                    <span data-lang="stat_daily_tips">Daily Tips</span>
+                                </div>
+                                <div class="banner-stat">
+                                    <span class="stat-number" id="activeAlerts">1</span>
+                                    <span data-lang="stat_alerts">Active Alerts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-weather">
+                            <div class="weather-info">
+                                <span class="weather-icon">🌤️</span>
+                                <div class="weather-details">
+                                    <span class="weather-temp">28°C</span>
+                                    <span class="weather-desc" data-lang="weather_partly_cloudy">Partly Cloudy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Grid -->
+                    <div class="quick-actions-grid">
+                        <h3 class="section-title" data-lang="quick_actions">Quick Actions</h3>
+                        <div class="actions-container">
+                            <div class="action-card primary" data-action="ai-advisory">
+                                <div class="action-icon">🤖</div>
+                                <div class="action-content">
+                                    <h4 data-lang="action_ai_advisory">AI Crop Advisory</h4>
+                                    <p data-lang="action_ai_desc">Get instant AI-powered farming advice</p>
+                                </div>
+                                <div class="action-badge">Fast</div>
+                            </div>
+
+                            <div class="action-card" data-action="weather">
+                                <div class="action-icon">🌦️</div>
+                                <div class="action-content">
+                                    <h4 data-lang="action_weather">Weather Forecast</h4>
+                                    <p data-lang="action_weather_desc">7-day detailed weather outlook</p>
+                                </div>
+                                <div class="action-badge">Live</div>
+                            </div>
+
+                            <div class="action-card" data-action="market">
+                                <div class="action-icon">📊</div>
+                                <div class="action-content">
+                                    <h4 data-lang="action_market">Market Prices</h4>
+                                    <p data-lang="action_market_desc">Real-time commodity prices</p>
+                                </div>
+                                <div class="action-badge">Updated</div>
+                            </div>
+
+                            <div class="action-card" data-action="subsidies">
+                                <div class="action-icon">💰</div>
+                                <div class="action-content">
+                                    <h4 data-lang="action_subsidies">Subsidy Check</h4>
+                                    <p data-lang="action_subsidies_desc">Eligibility & application status</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Widgets -->
+                    <div class="dashboard-widgets">
+                        <!-- Recent Activity -->
+                        <div class="widget recent-activity">
+                            <div class="widget-header">
+                                <h4 data-lang="widget_recent_activity">Recent Activity</h4>
+                                <button class="widget-action" data-lang="widget_view_all">View All</button>
+                            </div>
+                            <div class="widget-content">
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">🤖</div>
+                                        <div class="activity-content">
+                                            <p data-lang="activity_ai_response">AI provided pest control advice for your rice crop</p>
+                                            <span class="activity-time">2 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">🌦️</div>
+                                        <div class="activity-content">
+                                            <p data-lang="activity_weather_alert">Rain alert: Irrigation not recommended tomorrow</p>
+                                            <span class="activity-time">5 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">📊</div>
+                                        <div class="activity-content">
+                                            <p data-lang="activity_price_update">Rice prices increased by 3% in local market</p>
+                                            <span class="activity-time">1 day ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Crop Health Monitor -->
+                        <div class="widget crop-health">
+                            <div class="widget-header">
+                                <h4 data-lang="widget_crop_health">Crop Health Monitor</h4>
+                                <div class="health-status good">Good</div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="health-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label" data-lang="metric_soil_moisture">Soil Moisture</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span class="metric-value">75%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label" data-lang="metric_nutrient_level">Nutrient Level</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span class="metric-value">60%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label" data-lang="metric_pest_risk">Pest Risk</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill risk" style="width: 30%"></div>
+                                        </div>
+                                        <span class="metric-value">Low</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Insights -->
+                        <div class="widget ai-insights">
+                            <div class="widget-header">
+                                <h4 data-lang="widget_ai_insights">AI Insights</h4>
+                                <div class="insight-badge">New</div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="insight-item">
+                                    <div class="insight-icon">💡</div>
+                                    <div class="insight-content">
+                                        <p data-lang="insight_fertilizer">Optimal fertilizer application window opens next week</p>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-icon">⚠️</div>
+                                    <div class="insight-content">
+                                        <p data-lang="insight_weather">Monitor for potential hailstorm in your region</p>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-icon">📈</div>
+                                    <div class="insight-content">
+                                        <p data-lang="insight_market">Market trends suggest better prices in 2 weeks</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Advisory Section -->
+                <section class="content-section" id="advisory-section">
+                    <div class="section-header">
+                        <h2 data-lang="advisory_title">AI Agricultural Advisor</h2>
+                        <p data-lang="advisory_subtitle">Get expert farming advice powered by advanced AI</p>
+                    </div>
+
+                    <div class="advisory-container">
+                        <!-- Context Panel -->
+                        <div class="context-panel">
+                            <h4 data-lang="context_title">Analysis Context</h4>
+                            <div class="context-fields">
+                                <div class="context-field">
+                                    <label data-lang="context_crop">Primary Crop</label>
+                                    <select id="contextCrop" class="context-select">
+                                        <option value="" data-lang="select_crop">Select crop</option>
+                                        <option value="rice">Rice</option>
+                                        <option value="wheat">Wheat</option>
+                                        <option value="vegetables">Vegetables</option>
+                                        <option value="coconut">Coconut</option>
+                                        <option value="rubber">Rubber</option>
+                                    </select>
+                                </div>
+                                <div class="context-field">
+                                    <label data-lang="context_season">Current Season</label>
+                                    <select id="contextSeason" class="context-select">
+                                        <option value="monsoon">Monsoon</option>
+                                        <option value="winter">Winter</option>
+                                        <option value="summer">Summer</option>
+                                    </select>
+                                </div>
+                                <div class="context-field">
+                                    <label data-lang="context_region">Region</label>
+                                    <div class="location-input">
+                                        <input type="text" id="contextRegion" placeholder="Auto-detected" readonly>
+                                        <button class="btn-locate" data-lang="btn_detect">Detect</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Query Input Panel -->
+                        <div class="query-panel">
+                            <div class="query-header">
+                                <h4 data-lang="query_title">Describe Your Agricultural Issue</h4>
+                                <div class="input-methods">
+                                    <button class="method-btn active" data-method="text">
+                                        <span>📝</span>
+                                        <span data-lang="method_text">Text</span>
+                                    </button>
+                                    <button class="method-btn" data-method="voice">
+                                        <span>🎤</span>
+                                        <span data-lang="method_voice">Voice</span>
+                                    </button>
+                                    <button class="method-btn" data-method="image">
+                                        <span>🖼️</span>
+                                        <span data-lang="method_image">Image</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="query-input">
+                                <textarea id="aiQuery" placeholder="Describe your farming issue in detail..." 
+                                         data-placeholder="query_placeholder"></textarea>
+                                
+                                <div class="input-controls">
+                                    <div class="control-group">
+                                        <button class="btn-control" id="btnSpeech">
+                                            <span>🎤</span>
+                                            <span data-lang="btn_speech">Speech Input</span>
+                                        </button>
+                                        <button class="btn-control" id="btnUpload">
+                                            <span>📎</span>
+                                            <span data-lang="btn_upload">Upload Image</span>
+                                        </button>
+                                        <input type="file" id="imageUpload" accept="image/*" hidden>
+                                    </div>
+                                    
+                                    <button class="btn-primary btn-analyze" id="btnAnalyze">
+                                        <span>🔍</span>
+                                        <span data-lang="btn_analyze">Analyze with AI</span>
+                                    </button>
+                                </div>
+
+                                <!-- File Previews -->
+                                <div class="file-previews" id="filePreviews"></div>
+                            </div>
+                        </div>
+
+                        <!-- AI Response Panel -->
+                        <div class="response-panel">
+                            <div class="response-header">
+                                <h4 data-lang="response_title">AI Analysis Result</h4>
+                                <div class="response-status" id="responseStatus" data-lang="status_ready">Ready for analysis</div>
+                            </div>
+
+                            <div class="response-content" id="responseContent">
+                                <div class="welcome-message">
+                                    <div class="welcome-icon">🤖</div>
+                                    <div class="welcome-text">
+                                        <h5 data-lang="welcome_ai_title">AI Agricultural Advisor</h5>
+                                        <p data-lang="welcome_ai_desc">Describe your farming issue, and I'll provide detailed analysis and recommendations based on your specific context.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feedback Section -->
+                            <div class="feedback-section">
+                                <div class="feedback-prompt" data-lang="feedback_prompt">Was this analysis helpful?</div>
+                                <div class="feedback-buttons">
+                                    <button class="btn-feedback positive" data-lang="feedback_yes">👍 Yes</button>
+                                    <button class="btn-feedback negative" data-lang="feedback_no">👎 No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analysis History -->
+                    <div class="history-panel">
+                        <div class="panel-header">
+                            <h4 data-lang="history_title">Recent Analyses</h4>
+                            <button class="btn-clear" data-lang="btn_clear_all">Clear All</button>
+                        </div>
+                        <div class="history-list" id="historyList">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other sections would be implemented similarly -->
+                <section class="content-section" id="weather-section">
+                    <!-- Weather intelligence content -->
+                </section>
+
+                <section class="content-section" id="market-section">
+                    <!-- Market analytics content -->
+                </section>
+            </div>
+
+            <!-- Right Sidebar - Notifications & Quick Tools -->
+            <aside class="premium-sidebar-right">
+                <!-- Notifications Panel -->
+                <div class="sidebar-widget notifications">
+                    <div class="widget-header">
+                        <h4 data-lang="widget_notifications">Notifications</h4>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="widget-content">
+                        <div class="notification-list">
+                            <div class="notification-item urgent">
+                                <div class="notification-icon">⚠️</div>
+                                <div class="notification-content">
+                                    <p data-lang="notif_weather_alert">Weather alert: Heavy rain expected</p>
+                                    <span class="notification-time">10 min ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">🤖</div>
+                                <div class="notification-content">
+                                    <p data-lang="notif_ai_update">New pest detection model available</p>
+                                    <span class="notification-time">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">💰</div>
+                                <div class="notification-content">
+                                    <p data-lang="notif_subsidy">Subsidy application deadline approaching</p>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Tools -->
+                <div class="sidebar-widget quick-tools">
+                    <div class="widget-header">
+                        <h4 data-lang="widget_quick_tools">Quick Tools</h4>
+                    </div>
+                    <div class="widget-content">
+                        <div class="tool-grid">
+                            <button class="tool-btn" data-tool="calculator">
+                                <span class="tool-icon">🧮</span>
+                                <span data-lang="tool_calculator">Profit Calc</span>
+                            </button>
+                            <button class="tool-btn" data-tool="calendar">
+                                <span class="tool-icon">📅</span>
+                                <span data-lang="tool_calendar">Crop Calendar</span>
+                            </button>
+                            <button class="tool-btn" data-tool="converter">
+                                <span class="tool-icon">⚖️</span>
+                                <span data-lang="tool_converter">Unit Converter</span>
+                            </button>
+                            <button class="tool-btn" data-tool="emergency">
+                                <span class="tool-icon">🚨</span>
+                                <span data-lang="tool_emergency">Emergency</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agri Expert Connect -->
+                <div class="sidebar-widget expert-connect">
+                    <div class="widget-header">
+                        <h4 data-lang="widget_expert_connect">Agri Expert</h4>
+                        <div class="online-status">Online</div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="expert-profile">
+                            <div class="expert-avatar">👨‍🔬</div>
+                            <div class="expert-info">
+                                <span class="expert-name">Dr. Rajesh Kumar</span>
+                                <span class="expert-specialty" data-lang="expert_specialty">Soil Scientist</span>
+                            </div>
+                        </div>
+                        <button class="btn-chat" data-lang="btn_chat_expert">Chat with Expert</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Premium Footer -->
+        <footer class="premium-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">🌾</div>
+                    <div class="footer-text">
+                        <h4 data-lang="footer_app_name">Krishi Sahayata Pro</h4>
+                        <p data-lang="footer_tagline">Transforming agriculture with AI intelligence</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h5 data-lang="footer_support">Support</h5>
+                    <a href="#" data-lang="footer_help">Help Center</a>
+                    <a href="#" data-lang="footer_contact">Contact Experts</a>
+                    <a href="#" data-lang="footer_feedback">Give Feedback</a>
+                </div>
+
+                <div class="footer-section">
+                    <h5 data-lang="footer_resources">Resources</h5>
+                    <a href="#" data-lang="footer_learning">Learning Hub</a>
+                    <a href="#" data-lang="footer_community">Community</a>
+                    <a href="#" data-lang="footer_api">Developer API</a>
+                </div>
+
+                <div class="footer-section">
+                    <h5 data-lang="footer_company">Company</h5>
+                    <a href="#" data-lang="footer_about">About Us</a>
+                    <a href="#" data-lang="footer_careers">Careers</a>
+                    <a href="#" data-lang="footer_privacy">Privacy Policy</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Krishi Sahayata Pro. All rights reserved. | <span data-lang="footer_powered">Powered by Advanced AI</span></p>
+                <div class="footer-badges">
+                    <span class="badge" data-lang="badge_secure">🔒 Secure</span>
+                    <span class="badge" data-lang="badge_ai">🤖 AI-Powered</span>
+                    <span class="badge" data-lang="badge_innovative">💡 Innovative</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-animation">
+                <div class="loading-spinner"></div>
+                <div class="loading-text" data-lang="loading_processing">AI is processing your request...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Includes -->
+    <script src="scripts/language.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/voiceAI.js"></script>
+    <script src="scripts/imageAI.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/animations.js"></script>
+</body>
+</html>
